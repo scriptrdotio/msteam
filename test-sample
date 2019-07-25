@@ -1,4 +1,4 @@
-var mscModule = require('/microsoft-teams-connector/MicrosoftTeams');
+var mscModule = require('./MicrosoftTeams');
 
 var mt=new mscModule.MicrosoftTeams();
 var cnMngr=mt.getConnectorManager();
