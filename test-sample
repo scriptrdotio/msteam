@@ -1,0 +1,53 @@
+var mscModule = require('/microsoft-teams-connector/MicrosoftTeams');
+
+var mt=new mscModule.MicrosoftTeams();
+var cnMngr=mt.getConnectorManager();
+var myConnector=cnMngr.connector("general");
+
+var msg={
+    "@context": "https://schema.org/extensions",
+    "@type": "MessageCard",
+    "potentialAction": [
+        {
+            "@type": "OpenUri",
+            "name": "View All Tweets",
+            "targets": [
+                {
+                    "os": "default",
+                    "uri": "https://twitter.com/search?q=%23MicrosoftTeams"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "facts": [
+                {
+                    "name": "Posted By:",
+                    "value": ""
+                },
+                {
+                    "name": "Posted At:",
+                    "value": ""
+                },
+                {
+                    "name": "Tweet:",
+                    "value": ""
+                }
+            ],
+            "text": "A tweet with #MicrosoftTeams has been posted:"
+        }
+    ],
+    "summary": "Tweet Posted",
+    "themeColor": "0072C6",
+    "title": "Tweet Posted"
+};
+
+try{
+    
+    return myConnector.send(
+    msg
+);
+}catch(exception){
+    return exception;
+}

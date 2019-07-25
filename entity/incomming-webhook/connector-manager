@@ -1,0 +1,33 @@
+var config = require("../../config");
+var clientModule = require("../../client");
+var connectorModule = require("./connector");
+function ConnectorManager(dto) {
+
+
+}
+
+ConnectorManager.prototype.connector = function (channelName,channelUri) {
+    if (!channelName) {
+        channelName = config.team.defaultChannel;
+    }
+    if (!channelUri) {
+        channelUri = config.team.channels[channelName];
+    }
+
+    var client = new clientModule.Client(
+        {
+            endPoint:channelUri
+
+        }
+    );
+
+    return new connectorModule.Connector(
+
+        {
+
+            client:client
+        }
+    );
+
+
+}

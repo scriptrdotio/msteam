@@ -1,0 +1,27 @@
+var configModule = require("./config");
+
+var conMngr = require("./entity/incomming-webhook/connector-manager");
+
+function MicrosoftTeams(config) {
+    
+    if (config) {
+        
+        for(var key in config){
+            this[key] = config[key]
+        }
+    }
+   
+    this.team = this.team ? this.team : configModule.team;
+    
+    
+    
+}
+
+MicrosoftTeams.prototype.getConnectorManager = function() {
+  
+    if (!this.connectorManager) {
+        this.connectorManager = new conMngr.ConnectorManager({});
+    }
+    
+    return this.connectorManager;
+};

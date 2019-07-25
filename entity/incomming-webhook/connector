@@ -1,0 +1,34 @@
+var config = require("../../config");
+var clientModule = require("../../client");
+function Connector(dto) {
+    if (!dto || !dto.client) {
+        throw {
+            errorCode: config.errorCodeList['missingParameter'],
+            errorDetail: "dto.client cannot be null or empty"
+        };
+    }
+
+    for (key in dto) {
+        this[key] = dto[key];
+    }
+
+}
+
+
+Connector.prototype.send = function (data) {
+
+    var params = {};
+    params.method = "POST"
+    params.url = ""
+    if (typeof(data) == "string") {
+        params.bodyString = data;
+    }else{
+        params.bodyString = JSON.stringify(data);
+    }
+    
+
+    var response = this.client.callApi(params);
+    return response.body;
+
+
+}
