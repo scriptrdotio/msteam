@@ -1,6 +1,6 @@
 var configModule = require("./config");
 
-var conMngr = require("./entity/incomming-webhook/connector-manager");
+var conMngr = require("./entity/incomming-webhook/connectormanager");
 
 function MicrosoftTeams(config) {
     
