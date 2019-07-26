@@ -2,7 +2,7 @@ var config = require("../../config");
 var clientModule = require("../../client");
 
 /**
- * Wrapper of the Microsoft Teams Incomming Webhook Connector APIs
+ * Wrapper of the Microsoft Teams Incoming Webhook Connector APIs
  * @class Connector
  * @constructor
  * @param {Object} [dto]

@@ -14,7 +14,7 @@ var conMngr = require("./webhook/incoming/connectormanager");
  * @param {Object} [config.team.channels] : team channelsin the following structure 
  * channels: {
  *       //add all your channels 
- *       <channelName>: "<IncommingWebhookURI>",//URI can be full URL or Relative
+ *       <channelName>: "<IncomingWebhookURI>",//URI can be full URL or Relative
  *       
  * }
  * @param {Object} [config.client] : instance of HttpClient

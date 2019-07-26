@@ -3,7 +3,7 @@ var clientModule = require("../../client");
 var connectorModule = require("./connector");
 
 /**
- * Microsoft Teams Incomming Webhook Connectors Manager
+ * Microsoft Teams Incoming Webhook Connectors Manager
  * @class ConnectorManager
  * @constructor
  * @param {Object} [dto]

@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 - admin access to MSTeams Instance 
-- install Incomming Webhook App
+- install Incoming Webhook App
 - configure connectors to the needed channels
 - hands on the connectors URIs
 
@@ -17,7 +17,7 @@ const team = {
     name: "Test Team",//not used for now but it will help you distinguish your apps
     channels: {
         //add all your channels 
-        <ChannelName>: "<IncommingWebhookURI>",
+        <ChannelName>: "<IncomingWebhookURI>",
         
     },
     defaultChannel: "general"

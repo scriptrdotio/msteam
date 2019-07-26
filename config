@@ -4,7 +4,7 @@ const team = {
     name: "Test Team",//not used for now but it will help you distinguish your apps
     channels: {
         //add all your channels 
-        general: "<IncommingWebhookURI>",
+        general: "<IncomingWebhookURI>",
         
     },
     defaultChannel: "general"
