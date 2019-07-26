@@ -1,6 +1,14 @@
 var config = require("../../config");
 var clientModule = require("../../client");
 var connectorModule = require("./connector");
+
+/**
+ * Microsoft Teams Incomming Webhook Connectors Manager
+ * @class ConnectorManager
+ * @constructor
+ * @param {Object} [dto]
+ * @param {Object} [dto.client] : instance of HttpClient
+ */
 function ConnectorManager(dto) {
 
     if (!dto || !dto.client) {
@@ -18,6 +26,12 @@ function ConnectorManager(dto) {
 
 }
 
+/**
+ * @method  getConnector
+ * @param {string} [channelName] : the channel name of the connector
+ * @param {string} [channelUri] : the channel uri of the connector
+ * @return {Object} : Connector Instance
+ */
 ConnectorManager.prototype.getConnector = function (channelName, channelUri) {
     if (!channelName) {
         channelName = config.team.defaultChannel;

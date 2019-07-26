@@ -1,5 +1,16 @@
 var config = require("../../config");
 var clientModule = require("../../client");
+
+/**
+ * Wrapper of the Microsoft Teams Incomming Webhook Connector APIs
+ * @class Connector
+ * @constructor
+ * @param {Object} [dto]
+ * @param {Object} [dto.client] : instance of HttpClient
+ * @param {String} [dto.channelName] : channel name that you to connect to
+ * @param {String} [dto.channelUri] : channel URI that you to connect to
+ */
+
 function Connector(dto) {
     if (!dto || !dto.client || !dto.channelName || !dto.channelUri  ) {
         throw {
@@ -13,6 +24,11 @@ function Connector(dto) {
     }
 }
 
+/**
+ * @method  send
+ * @param {Object} [data]
+ * @return {Object} : the response body from MSTeams API
+ */
 Connector.prototype.send = function (data) {
     var params = {};
     params.method = "POST"

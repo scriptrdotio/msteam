@@ -2,6 +2,24 @@ var configModule = require("./config");
 var clientModule = require("./client");
 var conMngr = require("./webhook/incomming/connectormanager");
 
+/**
+ * Microsoft Teams Manager
+ * @class MicrosoftTeams
+ * @constructor
+ * @param {Object} [config]
+ * @param {Object} [config.team] : team configurations
+ * @param {string} [config.team.defaultChannel] : the default channel name of the connector
+ * @param {string} [config.team.name] : the name of the Team
+ * @param {string} [config.team.baseUrl] : base URL of the MSTeams Connector API, "https://outlook.office.com/webhook/"
+ * @param {Object} [config.team.channels] : team channelsin the following structure 
+ * channels: {
+ *       //add all your channels 
+ *       <channelName>: "<IncommingWebhookURI>",//URI can be full URL or Relative
+ *       
+ * }
+ * @param {Object} [config.client] : instance of HttpClient
+ */
+
 function MicrosoftTeams(config) {
     
     if (config) {
@@ -17,6 +35,12 @@ function MicrosoftTeams(config) {
     
 }
 
+/**
+ * @method  getConnector
+ * @param {string} [channelName] : the channel name of the connector
+ * @param {string} [channelUri] : the channel uri of the connector
+ * @return {Object} : Connector Instance
+ */
 MicrosoftTeams.prototype.getConnectorManager = function() {
   
     if (!this.connectorManager) {
