@@ -1,0 +1,38 @@
+var config = require("../../config");
+var clientModule = require("../../client");
+var connectorModule = require("./connector");
+function ConnectorManager(dto) {
+
+    if (!dto || !dto.client) {
+
+        throw {
+
+            errorCode: "Invalid_Parameter",
+            errorDetail: "ConnectorManager dto and dto.client cannot be null or empty"
+        };
+    }
+
+    for (key in dto) {
+        this[key] = dto[key];
+    }
+
+}
+
+ConnectorManager.prototype.getConnector = function (channelName, channelUri) {
+    if (!channelName) {
+        channelName = config.team.defaultChannel;
+    }
+    if (!channelUri) {
+        channelUri = config.team.channels[channelName];
+    }
+
+    
+    return new connectorModule.Connector(
+        {
+            client: this.client,
+            channelUri:channelUri,
+            channelName:channelName
+        }
+    );
+
+}

@@ -1,34 +1,28 @@
 var config = require("../../config");
 var clientModule = require("../../client");
 function Connector(dto) {
-    if (!dto || !dto.client) {
+    if (!dto || !dto.client || !dto.channelName || !dto.channelUri  ) {
         throw {
             errorCode: config.errorCodeList['missingParameter'],
-            errorDetail: "dto.client cannot be null or empty"
+            errorDetail: "dto and dto.client and dto.channelName and dto.channelUri cannot be null or empty"
         };
     }
 
     for (key in dto) {
         this[key] = dto[key];
     }
-
 }
 
-
 Connector.prototype.send = function (data) {
-
     var params = {};
     params.method = "POST"
-    params.url = ""
+    params.url = this.channelUri;
     if (typeof(data) == "string") {
         params.bodyString = data;
     }else{
         params.bodyString = JSON.stringify(data);
     }
-    
-
     var response = this.client.callApi(params);
     return response.body;
-
 
 }

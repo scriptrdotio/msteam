@@ -1,6 +1,6 @@
 var configModule = require("./config");
-
-var conMngr = require("./entity/incomming-webhook/connectormanager");
+var clientModule = require("./client");
+var conMngr = require("./webhook/incomming/connectormanager");
 
 function MicrosoftTeams(config) {
     
@@ -13,14 +13,16 @@ function MicrosoftTeams(config) {
    
     this.team = this.team ? this.team : configModule.team;
     
-    
+    this.client=this.client?this.client:(new clientModule.Client({endPoitn:""}) );
     
 }
 
 MicrosoftTeams.prototype.getConnectorManager = function() {
   
     if (!this.connectorManager) {
-        this.connectorManager = new conMngr.ConnectorManager({});
+        this.connectorManager = new conMngr.ConnectorManager({
+            client:this.client
+        });
     }
     
     return this.connectorManager;

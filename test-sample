@@ -2,7 +2,7 @@ var mscModule = require('./MicrosoftTeams');
 
 var mt=new mscModule.MicrosoftTeams();
 var cnMngr=mt.getConnectorManager();
-var myConnector=cnMngr.connector("general");
+var myConnector=cnMngr.getConnector("general");
 
 var msg={
     "@context": "https://schema.org/extensions",
