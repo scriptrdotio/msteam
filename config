@@ -1,5 +1,6 @@
 //The Team Info 
 const team = {
+    baseUrl:"https://outlook.office.com/webhook/",
     name: "Test Team",//not used for now but it will help you distinguish your apps
     channels: {
         //add all your channels 

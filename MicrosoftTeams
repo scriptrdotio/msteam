@@ -13,7 +13,7 @@ function MicrosoftTeams(config) {
    
     this.team = this.team ? this.team : configModule.team;
     
-    this.client=this.client?this.client:(new clientModule.Client({endPoitn:""}) );
+    this.client=this.client?this.client:(new clientModule.Client({endPoitn:this.team.baseUrl}) );
     
 }
 
