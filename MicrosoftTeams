@@ -1,6 +1,6 @@
 var configModule = require("./config");
 var clientModule = require("./client");
-var conMngr = require("./webhook/incomming/connectormanager");
+var conMngr = require("./webhook/incoming/connectormanager");
 
 /**
  * Microsoft Teams Manager
